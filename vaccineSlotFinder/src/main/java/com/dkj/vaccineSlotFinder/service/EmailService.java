@@ -16,7 +16,6 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    private List<String> availableCenters = new ArrayList<>();
     @Value("${email.to}")
     String to;
     @Value("${email.from}")
@@ -24,6 +23,7 @@ public class EmailService {
 
     public String sendEmail(List<Center> centers)
     {
+        List<String> availableCenters = new ArrayList<>();
         centers.forEach(center->{
             availableCenters.add(center.getName());
         });
